@@ -33,15 +33,6 @@ namespace FACTURACIONUTC
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// Control sqlclientes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlclientes;
-
-        /// <summary>
         /// Control TCODIGO.
         /// </summary>
         /// <remarks>
@@ -60,21 +51,12 @@ namespace FACTURACIONUTC
         protected global::System.Web.UI.WebControls.TextBox TNOMBRE;
 
         /// <summary>
-        /// Control BINGRESAR.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BINGRESAR;
-
-        /// <summary>
-        /// Control BBORRAR.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BBORRAR;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

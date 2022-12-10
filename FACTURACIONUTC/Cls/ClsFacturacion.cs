@@ -7,7 +7,7 @@ using System.Web;
 
 namespace FACTURACIONUTC.Cls
 {
-    public class ClsFactura
+    public class ClsFacturacion
     {
         public static int codigoFactura { get; set; }
         public static float total { get; set; }
@@ -16,7 +16,7 @@ namespace FACTURACIONUTC.Cls
         public static float precio { get; set; }
         public static int cliente { get; set; }
 
-        public static int AgregarDetalleFactura(int linea, int cod, int cant, float precio )
+        public static int AgregarDetalleFactura(int linea, int cod, int cant, float precio)
         {
             int retorno = 0;
 
@@ -52,10 +52,10 @@ namespace FACTURACIONUTC.Cls
             return retorno;
         }
 
-        public static int AgregarMaestroFactura(string cod, string descripcion)
+        public static int AgregarMaestroFactura()
         {
             int retorno = 0;
-         
+
             SqlConnection Conn = new SqlConnection();
 
             try
@@ -66,9 +66,9 @@ namespace FACTURACIONUTC.Cls
                     {
                         CommandType = CommandType.StoredProcedure
                     };
-                    cmd.Parameters.Add(new SqlParameter("@Cliente", cod));
-                    cmd.Parameters.Add(new SqlParameter("@total", descripcion));
-                   
+                    cmd.Parameters.Add(new SqlParameter("@Cliente", cliente));
+                    cmd.Parameters.Add(new SqlParameter("@total", total));
+
 
                     retorno = cmd.ExecuteNonQuery();
 
@@ -88,4 +88,5 @@ namespace FACTURACIONUTC.Cls
 
 
     }
+
 }

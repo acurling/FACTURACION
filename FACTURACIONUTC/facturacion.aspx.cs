@@ -54,6 +54,8 @@ namespace FACTURACIONUTC
                 tnombre.Text = "";
                 tcantidad.Text = "";
                 tprecio.Text = "";
+                
+
             }
             catch (Exception)
             {
@@ -64,26 +66,31 @@ namespace FACTURACIONUTC
 
             finally
             {
-               
+
+
             }
         }
 
         protected void Bfacturar_Click(object sender, EventArgs e)
         {
+            ClsFacturacion.total = float.Parse(LTOTAL.Text);
+            ClsFacturacion.cliente = int.Parse(tcodigocliente.Text);
 
-            ClsFactura.linea = 0;
-            if (ClsFactura.AgregarMaestroFactura(tnombre.Text, LTOTAL.Text) > 0)
+            if (ClsFacturacion.AgregarMaestroFactura()>0)
             {
+                int linea = 0;
                 foreach (GridViewRow item in GridView1.Rows)
                 {
+                    
                     int codigo = int.Parse(item.Cells[0].Text);
                     int cantidad = int.Parse(item.Cells[2].Text);
                     float precio = float.Parse(item.Cells[3].Text);
-
-                    if (ClsFactura.AgregarDetalleFactura(ClsFactura.linea, codigo, cantidad, precio) > 0)
+                    linea++;
+                    if (ClsFacturacion.AgregarDetalleFactura(linea,codigo, cantidad, precio)>0)
                     {
-                        ClsFactura.linea++;
+
                     }
+
                 }
                 DataTable ds = new DataTable();
                 ds = null;
@@ -92,17 +99,30 @@ namespace FACTURACIONUTC
 
             }
 
+          
+            
         }
-
-      
 
         protected void tcodigo_TextChanged(object sender, EventArgs e)
         {
-            tnombre.Text = ClsProducto.BuscarProducto(tcodigo.Text);
-            tprecio.Text = Convert.ToString(ClsProducto.precio);
-            tcantidad.Focus();
+          
+                if (ClsProducto.BuscarProducto(tcodigo.Text) > 0)
+                {
+                    tnombre.Text = ClsProducto.nombre;
+                    tprecio.Text = ClsProducto.precio.ToString();
+                    tcantidad.Focus();
+                
+                }
+   
+            
         }
 
        
     }
+
+
+
+
 }
+       
+

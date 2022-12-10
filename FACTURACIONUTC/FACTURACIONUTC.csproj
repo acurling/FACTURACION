@@ -88,7 +88,7 @@
     <Compile Include="bitacora.aspx.designer.cs">
       <DependentUpon>bitacora.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cls\ClsFactura.cs" />
+    <Compile Include="Cls\ClsFacturacion.cs" />
     <Compile Include="Cls\ClsProducto.cs" />
     <Compile Include="Cls\DBConn.cs" />
     <Compile Include="facturacion.aspx.cs">

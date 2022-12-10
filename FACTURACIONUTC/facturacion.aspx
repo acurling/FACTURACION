@@ -23,6 +23,11 @@
         .auto-style4 {
             text-align: center;
             width: 315px;
+            height: 27px;
+        }
+        .auto-style5 {
+            text-align: center;
+            height: 27px;
         }
     </style>
 </head>
@@ -39,36 +44,37 @@
 
                 <tr>
                     <td class="auto-style4">
-                        <asp:TextBox ID="tcodigo" runat="server" OnTextChanged="tcodigo_TextChanged"></asp:TextBox>&nbsp;&nbsp;
+                        <asp:TextBox ID="tcodigo" runat="server" OnTextChanged="tcodigo_TextChanged" TextMode="Number"></asp:TextBox>&nbsp;&nbsp;
                         </td>
-                    <td class="auto-style1">
+                    <td class="auto-style5">
                         <asp:TextBox ID="tnombre" runat="server" Width="216px" Enabled="False"></asp:TextBox></td>
-                    <td class="auto-style1">
-                        <asp:TextBox ID="tcantidad" runat="server"></asp:TextBox></td>
-                    <td class="auto-style1">
+                    <td class="auto-style5">
+                        <asp:TextBox ID="tcantidad" runat="server" TextMode="Number"></asp:TextBox></td>
+                    <td class="auto-style5">
                         <asp:TextBox ID="tprecio" runat="server" Enabled="False"></asp:TextBox></td>
                 </tr>
 
 
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td class="auto-style2"><strong></strong></td>
-                    <td class="auto-style2"><strong></strong></td>
+                 <tr>
+                    <td class="auto-style3">Codigo cliente</td>
+                    <td class="auto-style2"><strong>Nombre Cliente</strong></td>
+                    <td class="auto-style2"><strong>Fecha</strong></td>
+                    <td class="auto-style2"><strong>Numero factura</strong></td>
+                </tr>
+                 <tr>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="tcodigocliente" runat="server" OnTextChanged="tcodigo_TextChanged" TextMode="Number"></asp:TextBox>&nbsp;&nbsp;
+                        </td>
+                    <td class="auto-style5">
+                        <asp:TextBox ID="tnombrecliente" runat="server" Width="216px" Enabled="False"></asp:TextBox></td>
+                    <td class="auto-style5">
+                        <asp:TextBox ID="tfecha" runat="server" TextMode="Number"></asp:TextBox></td>
+                    <td class="auto-style5">
+                        <asp:TextBox ID="tnumerofactura" runat="server" Enabled="False"></asp:TextBox></td>
                 </tr>
 
-                 <tr>
-                    <td class="auto-style3">Cliente</td>
-                    <td class="auto-style2"><strong>Fecha</strong></td>
-                    <td class="auto-style2"><strong>numero factura</strong></td>
-                    <td class="auto-style2"><strong> Sistema Ventas</strong></td>
-                </tr>
-                 <tr>
-                    <td class="auto-style3"><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
-                    <td class="auto-style2"><asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
-                    <td class="auto-style2"><asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
-                    <td class="auto-style2"><asp:TextBox ID="TextBox4" runat="server"></asp:TextBox></td>
-                </tr>
+               
+                
                 
             </table>
         </div>

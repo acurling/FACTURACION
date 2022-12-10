@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,17 +14,36 @@ namespace FACTURACIONUTC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            LlenarGrid();
         }
 
-        protected void BINGRESAR_Click(object sender, EventArgs e)
+        protected void LlenarGrid()
         {
-            sqlclientes.Insert();
+            string constr = ConfigurationManager.ConnectionStrings["VETERINARIAConnectionString"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("  select m.id, m.fecha, m.cliente, m.total,d.linea,d.codigo, d.cantidad, d.precio" +
+                    " from Mae_factura m inner join Det_factura d on m.id = d.id" +
+                    " where cliente = '" + TCODIGO.Text + "'  order by id, linea"))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            GridView1.DataSource = dt;
+                            GridView1.DataBind();
+                        }
+                    }
+                }
+            }
         }
 
-        protected void BBORRAR_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            sqlclientes.Delete();
+            LlenarGrid();
         }
     }
 }
